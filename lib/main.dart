@@ -16,11 +16,18 @@ import 'pages/overview/widgets/overview_controller.dart';
 import 'routing/routes.dart';
 import 'translation/translation.dart';
 
-void main() {
+Future<void> init() async {
   Get.put(NavigationController());
-  Get.put(MenuController());
-
+  Get.put(MenuController1());
   Get.put(AuthController(), permanent: true);
+}
+
+void main() async {
+   WidgetsFlutterBinding.ensureInitialized();
+  await init();
+  // Get.put(NavigationController());
+  // Get.put(MenuController());
+  // Get.put(AuthController(), permanent: true);
   // Get.put(OverViewController(),permanent: true);
 
   // Get.lazyPut(() => AuthController(AuthenticationPage()), fenix: true);
